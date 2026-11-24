@@ -1,12 +1,14 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Header } from './header/header';
 
 @Component({
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, Header],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
 })
 export class App {
-  protected readonly title = signal('TP_Cours');
+  protected readonly title = signal('Annuaire de Benjamin');
+
 }
