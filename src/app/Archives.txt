@@ -36,22 +36,7 @@ Personne {
 })
 
 
-export class APIService implements OnInit{
 
-  private readonly url = 'https://randomuser.me/api/?seed=cda2&results=30&nat=fr';
-  private readonly http = inject(HttpClient);
-
-  protected readonly personnes = signal<Personne[]>([]);
- 
-  async ngOnInit() {
-    this.personnes.set(await this.getAll());
-  }
- 
-  async getAll(): Promise<Personne[]> {
-  const response = await firstValueFrom(this.http.get<{ results: Personne[] }>(this.url));
-  return response.results;
-  }
-}
 @for(p of personnes(); track $index){
     <p>La Personne est:</p>
     <p>{{p.name.title}}  {{p.name.first}}  {{p.name.last}}</p>

@@ -1,4 +1,4 @@
-type Personne = {
+export type Person = {
   gender : string,
   name :{
     title :string,
@@ -20,3 +20,9 @@ type Personne = {
     password : string,
   },
  };
+
+ export type PeopleResponse = {
+    results:Person[],
+ };
+
+ export type LoadStatus = 'loading' | 'error' | 'ready';

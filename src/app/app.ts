@@ -1,6 +1,7 @@
-import { Component, signal, inject } from '@angular/core';
+import { Component, signal, inject, computed } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Header } from './header/header';
+import { APIService } from './person-api.service';
 
 @Component({
   imports: [RouterOutlet, Header],
@@ -10,5 +11,11 @@ import { Header } from './header/header';
 })
 export class App {
   protected readonly title = signal('Annuaire de Benjamin');
+  apiService = inject(APIService);
+  
+  IdLoad = this.apiService.etatSignal()
+
+  readonly count = computed(() => this.apiService.persons().length);
+
 
 }
