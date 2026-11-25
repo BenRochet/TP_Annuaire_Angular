@@ -19,10 +19,14 @@ export type Person = {
     username : string,
     password : string,
   },
+  picture:{
+    medium : string,
+    thumbnail : string,
+  },
  };
 
  export type PeopleResponse = {
     results:Person[],
  };
 
- export type LoadStatus = 'loading' | 'error' | 'ready';
+export type LoadStatus = 'loading' | 'error' | 'ready';

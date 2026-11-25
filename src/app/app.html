@@ -1,5 +1,10 @@
 <app-header/>
-<p>Etat :{{IdLoad}}</p>
+<p>Etat {{idLoad}} </p>
 <p>Il y a {{ count() }} personnes chargé</p>
-<p>Etat :{{IdLoad}}</p>
+<p>Etat {{idLoad}} </p>
+<div class="person-class">
+    @for(p of persons(); track p.name){
+        <app-card-persons [person]="p"/>
+    }
+</div>
 <router-outlet/>
